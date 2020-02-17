@@ -14,7 +14,7 @@ public class SRSLoginTest {
     public void Initialize() {
         System.setProperty("webdriver.chrome.driver", "C:\\Users\\user\\Desktop\\Web_Drivers\\chromedriver.exe");
         driver = new ChromeDriver();
-        driver.get("http://localhost/CS458_P1_Php/index.php");
+        driver.get("http://localhost/Php/index.php");
 
         username_element = driver.findElement(By.xpath("//input[@name='LoginForm_username']"));
         password_element = driver.findElement(By.xpath("//input[@name='LoginForm_password']"));
