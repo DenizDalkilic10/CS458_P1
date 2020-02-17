@@ -1,0 +1,234 @@
+html {
+    overflow-y: scroll;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -90px;
+}
+
+#push,
+#footer {
+    height: 80px;
+}
+
+#footer .container {
+    padding-top: 10px;
+    border-top: 1px solid #f5f5f5;
+    font-size: 16px;
+}
+
+#page {
+    width: auto;
+}
+
+#footer .powered {
+    color: #888888;
+}
+
+#footer .copy {
+    color: #666666;
+    text-align: right;
+    font-size: 80%;
+}
+
+@media (min-width: 979px) {
+    #page {
+        padding-top: 44px;
+    }
+}
+
+@media (max-width: 767px) {
+    #footer {
+        margin-left: -20px;
+        margin-right: -20px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}
+
+/*
+Fix
+*/
+.form-horizontal input ~ .help-block,
+.form-horizontal select ~ .help-block,
+.form-horizontal textarea ~ .help-block,
+.form-horizontal .uneditable-input ~ .help-block,
+.form-horizontal .input-prepend ~ .help-block,
+.form-horizontal .input-append ~ .help-block {
+    margin-top: 10px;
+}
+
+form .control-group .help-block {
+    font-size: 90%;
+}
+
+a {
+    color: #014082;
+}
+
+.btn-bilkentt.active {
+    color: rgba(255, 255, 255, 0.75);
+}
+
+/*
+Button
+*/
+
+.btn-bilkent {
+    border: 1px solid #013163;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+    color: #ffffff;
+    background-color: #014082;
+    background-image: -moz-linear-gradient(top, #014a96, #013163);
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#014a96), to(#013163));
+    background-image: -webkit-linear-gradient(top, #014a96, #013163);
+    background-image: -o-linear-gradient(top, #014a96, #013163);
+    background-image: linear-gradient(to bottom, #014a96, #013163);
+    background-repeat: repeat-x;
+}
+
+.btn-bilkent:hover,
+.btn-bilkent:active,
+.btn-bilkent.active,
+.btn-bilkent:focus {
+    color: #ffffff;
+    background: none #013163;
+}
+
+.btn-bilkent:active,
+.btn-bilkent.active {
+    color: #ffffff;
+    background: none #014a96;
+}
+
+.btn-bilkent:focus {
+    color: #ffffff;
+    background: none #014a96;
+}
+
+.btn-bilkent.disabled,
+.btn-bilkent[disabled],
+.btn-bilkent.disabled:hover,
+.btn-bilkent[disabled]:hover,
+.btn-bilkent.disabled:active,
+.btn-bilkent[disabled]:active,
+.btn-bilkent.disabled:focus,
+.btn-bilkent[disabled]:focus {
+    color: #ffffff;
+    background: none #014a96;
+}
+
+/*
+Logo box
+*/
+#box-logo {
+    /*height: 120px;*/
+    background: #fff;
+    margin: 20px auto;
+    /*border-bottom: 1px solid #014a96;*/
+    position: relative;
+}
+
+#bilkent-logo {
+    float:left;
+    margin-right:10px;
+}
+
+#bilkent-logo img {
+    width: 70px;
+    height: 70px;
+}
+
+#bilkent-title {
+    float:left;
+}
+
+#bilkent-title h1  {
+    margin: 0;
+    color: #014a96;
+    font-size: 32px;
+    line-height: 1.4;
+}
+
+#bilkent-title h1 .sub-header {
+    font-size: 22px;
+    color: #999;
+    font-weight: normal;
+    display: block;
+}
+
+@media (max-width: 425px) {
+    #bilkent-logo img {
+        width: 60px;
+        height: 60px;
+    }
+
+    #bilkent-title h1  {
+        font-size: 22px;
+    }
+    #bilkent-title h1 .sub-header {
+        font-size: 18px;
+    }
+    .navbar .brand {
+        font-size: 18px;
+    }
+}
+
+.navbar-fixed-top {
+    margin-bottom: 0 !important;
+}
+
+
+/*#box-logo:before {*/
+    /*z-index: -1;*/
+    /*position: absolute;*/
+    /*content: "";*/
+    /*bottom: 15px;*/
+    /*left: 10px;*/
+    /*width: 50%;*/
+    /*top: 80%;*/
+    /*max-width: 300px;*/
+    /*background: #777;*/
+    /*-webkit-box-shadow: 0 15px 10px #777;*/
+    /*-moz-box-shadow: 0 15px 10px #777;*/
+    /*box-shadow: 0 15px 10px #777;*/
+    /*-webkit-transform: rotate(-3deg);*/
+    /*-moz-transform: rotate(-3deg);*/
+    /*-o-transform: rotate(-3deg);*/
+    /*-ms-transform: rotate(-3deg);*/
+    /*transform: rotate(-3deg);*/
+/*}*/
+
+.bilkent-form-actions {
+    border: none;
+    background: none;
+    padding-top: 0;
+}
+
+.navbar-masthead.navbar-inverse .navbar-inner {
+    background-color: #036 !important;
+    background: none;
+}
+
+.navbar-masthead.navbar-inverse .nav .active > a, .navbar-masthead.navbar-inverse .nav .active > a:hover, .navbar-masthead.navbar-inverse .nav .active > a:focus {
+    background-color: #001f3e !important;
+    background: none;
+    border-radius: 3px;
+}
+
+.navbar-masthead.navbar-inverse .btn-navbar {
+    background: none;
+    border: 0 none;
+}
+
+.navbar-masthead.navbar-inverse .btn-navbar:hover, .navbar-masthead.navbar-inverse .btn-navbar:focus, .navbar-masthead.navbar-inverse .btn-navbar:active, .navbar-masthead.navbar-inverse .btn-navbar.active, .navbar-masthead.navbar-inverse .btn-navbar.disabled, .navbar-masthead.navbar-inverse .btn-navbar[disabled] {
+    background: none;
+}
