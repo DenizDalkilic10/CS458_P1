@@ -1,0 +1,56 @@
+﻿{
+  "Test1": [
+    {
+      "userID": 2103454,
+      "password": "1234",
+      "output": "Failed login / Incorrect Password"
+    },
+    {
+      "userID": 2103,
+      "password": "Mypassword1",
+      "output": "Failed Login / Incorrect userID"
+    },
+    {
+      "userID": "210345$",
+      "password": "Mypassword1",
+      "output": "Failed Login / Incorrect userID (only integers allowed)"
+    },
+    {
+      "userID": 2103454,
+      "password": null,
+      "output": "Failed Login / Incorrect Password (Password cannot be empty)"
+    },
+    {
+      "userID": null,
+      "password": "Mypassword1",
+      "output": "Failed Login / Incorrect userID (userID cannot be empty)"
+    },
+    {
+      "userID": null,
+      "password": "Mypassword1",
+      "output": "Failed Login / Incorrect userID (userID cannot be empty)"
+    }
+  ],
+  "Test2": [
+    {
+      "userID": 2103454,
+      "password": "Mypassword1",
+      "output": "Successful Login. You’re in! (Correct auth)"
+    },
+    {
+      "userID": 2103454,
+      "password": "Mypassword$%1",
+      "output": "Successful Login. You’re in! (Symbols allowed in passwords)"
+    },
+    {
+      "userID": 2103454,
+      "password": "Mypassword$%1Mypassword$%1Mypassword$%1",
+      "output": "Successful Login. You’re in! (No constraint on password length)"
+    },
+    {
+      "userID": 2.103454253799102234242342,
+      "password": "Mypassword1",
+      "output": "Successful Login. You’re in! (No constraint on userID length as long as it is correct)"
+    }
+  ]
+}
