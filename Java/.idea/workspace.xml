@@ -2,7 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8aab99eb-bde6-4800-bcb3-5e52ccf70458" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_google_code_gson_gson_2_8_5.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_20070829_sources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CS458_Project_1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/CS458_Project_1.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/testDataInputs.json" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/testDataInputs.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS458_Project_1/SRSLoginTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/CS458_Project_1/SRSLoginTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/CS458_Project_1/SeleniumTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SRSLoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SRSLoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/SeleniumTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,16 +36,17 @@
   </component>
   <component name="PropertiesComponent">
     <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
+    <property name="Repository.Attach.Sources" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="TestNG" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.TestNG" value="" />
     <property name="create.test.in.the.same.root" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../External Libraries/json-20070829-sources.jar!/" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -51,10 +60,22 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.SRSLoginTest.invalidPasswordTest">
+  <component name="RunManager" selected="TestNG.SRSLoginTest.failedLoginTest">
     <configuration name="SeleniumTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="SeleniumTest" />
       <module name="CS458_Project_1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SRSLoginTest.failedLoginTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="CS458_Project_1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="SRSLoginTest" />
+      <option name="METHOD_NAME" value="failedLoginTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -73,6 +94,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.SRSLoginTest.failedLoginTest" />
         <item itemvalue="TestNG.SRSLoginTest.invalidPasswordTest" />
         <item itemvalue="Application.SeleniumTest" />
       </list>
@@ -108,6 +130,7 @@
       <workItem from="1581965489657" duration="371000" />
       <workItem from="1582378274153" duration="70000" />
       <workItem from="1582826381325" duration="210000" />
+      <workItem from="1582826658278" duration="5480000" />
     </task>
     <servers />
   </component>
@@ -127,42 +150,46 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="137" y="18" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1581442776213" />
-    <state x="513" y="74" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1581754943932">
+    <state x="513" y="74" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog" timestamp="1582832591755">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="513" y="74" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1366.728@0.0.1366.728" timestamp="1581754943932" />
-    <state x="178" y="100" key="FileChooserDialogImpl" timestamp="1581442602726">
+    <state x="513" y="74" key="#com.intellij.openapi.roots.ui.configuration.libraryEditor.LibraryEditorDialog/0.0.1366.728@0.0.1366.728" timestamp="1582832591755" />
+    <state x="406" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1582832595260">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="178" y="100" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1581442602726" />
-    <state width="1323" height="105" key="GridCell.Tab.0.bottom" timestamp="1581800518688">
+    <state x="406" y="118" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1366.728@0.0.1366.728" timestamp="1582832595260" />
+    <state x="178" y="100" key="FileChooserDialogImpl" timestamp="1582832221968">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="105" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1581800518688" />
-    <state width="1323" height="105" key="GridCell.Tab.0.center" timestamp="1581800518688">
+    <state x="178" y="100" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1582832221968" />
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom" timestamp="1582834307196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="105" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1581800518688" />
-    <state width="1323" height="105" key="GridCell.Tab.0.left" timestamp="1581800518688">
+    <state width="1323" height="2" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1582834307196" />
+    <state width="1323" height="2" key="GridCell.Tab.0.center" timestamp="1582834307196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="105" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1581800518688" />
-    <state width="1323" height="105" key="GridCell.Tab.0.right" timestamp="1581800518688">
+    <state width="1323" height="2" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1582834307196" />
+    <state width="1323" height="2" key="GridCell.Tab.0.left" timestamp="1582834307195">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="105" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1581800518688" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1581952114146">
+    <state width="1323" height="2" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1582834307195" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right" timestamp="1582834307196">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1581952114146" />
+    <state width="1323" height="2" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1582834307196" />
+    <state x="156" y="0" key="SettingsEditor" timestamp="1582832598938">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="156" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1582832598938" />
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1582378288772">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="379" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582378288772" />
-    <state x="388" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1581755278913">
+    <state x="388" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1582832584054">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="388" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1581755278913" />
+    <state x="388" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1582832584054" />
     <state x="454" y="66" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1581755306186">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
