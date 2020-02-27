@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8aab99eb-bde6-4800-bcb3-5e52ccf70458" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/SRSLoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SRSLoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -105,7 +105,9 @@
       <workItem from="1581758841801" duration="1417000" />
       <workItem from="1581790945211" duration="2769000" />
       <workItem from="1581951151234" duration="1640000" />
-      <workItem from="1581965489657" duration="217000" />
+      <workItem from="1581965489657" duration="371000" />
+      <workItem from="1582378274153" duration="70000" />
+      <workItem from="1582826381325" duration="210000" />
     </task>
     <servers />
   </component>
@@ -153,10 +155,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1581952114146" />
-    <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1581957281137">
+    <state x="379" y="187" key="com.intellij.ide.util.TipDialog" timestamp="1582378288772">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="379" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1581957281137" />
+    <state x="379" y="187" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1582378288772" />
     <state x="388" y="256" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1581755278913">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -165,6 +167,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="454" y="66" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1581755306186" />
+    <state x="65" y="0" key="new project wizard" timestamp="1582378312089">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1582378312089" />
     <state x="346" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1581754973294">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
