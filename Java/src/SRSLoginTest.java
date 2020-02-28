@@ -1,5 +1,6 @@
 import com.google.gson.*;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -41,20 +42,13 @@ public class SRSLoginTest {
 
     @Test(dataProvider = "failedLoginDataProvider")
     public void failedLoginTest(String username, String password, String expectedResult) {
-        String outcome = ""; // This will be taken from the UI element by selenium
-        performLoginOperation(username, password, expectedResult, outcome);
+
+        performLoginOperation(username, password, expectedResult);
     }
 
-    @DataProvider(name = "forgotPasswordDataProvider")
-    public static Object[] forgotPasswordTestDataProvider() {
-//        String data = readFile("Resources/testDataInputs.json");
-//        return readCredentialsFromResource(data, "Test1");
-        return null;
-    }
-
-    @Test(dataProvider = "forgotPasswordDataProvider")
+    @Test
     public void forgotPasswordTest(String username, String password, String expectedResult) {
-
+        //TODO FORGOT PASSWORD LINKE TIKLAYINCA BIR LABEL CIKMASI LAZIM
     }
 
     @DataProvider(name = "successfulLoginDataProvider")
@@ -65,38 +59,53 @@ public class SRSLoginTest {
 
     @Test(dataProvider = "successfulLoginDataProvider")
     public void successfulLoginTest(String username, String password, String expectedResult) {
-        String outcome = ""; // This will be taken from the UI element by selenium
-        performLoginOperation(username, password, expectedResult, outcome);
+        performLoginOperation(username, password, expectedResult);
     }
 
     @DataProvider(name = "pageRefreshDataProvider")
     public static Object[] pageRefreshTestDataProvider() {
-        return new Object[][]{{"210345","Mypassword","Failed Login"}};
+        return new Object[][]{{"210345", "Mypassword", "Failed Login"}};
     }
 
     @Test(dataProvider = "pageRefreshDataProvider")
     public void pageRefreshTest(String username, String password, String expectedResult) {
-        String outcome = ""; // This will be taken from the UI element by selenium
-        performLoginOperation(username, password, expectedResult, outcome);
-        driver.navigate().refresh(); //refreshing the page
-        Assert.assertEquals(outcome,"");
+        performLoginOperation(username, password, expectedResult);
+        performRefreshOperation();
     }
 
     @DataProvider(name = "passwordPasteDataProvider")
     public static Object[] passwordPasteTestDataProvider() {
-        return new Object[5][2];
+        return new Object[][]{{"Copy paste is not allowed for password"}};
     }
 
     @Test(dataProvider = "passwordPasteDataProvider")
-    public void passwordPasteTest(String username, String password, String expectedResult) {
-        String outcome = ""; // This will be taken from the UI element by selenium
-        performLoginOperation(username, password, expectedResult, outcome);
+    public void passwordPasteTest(String expectedResult) {
+        performCopyPasteOperation(expectedResult);
     }
 
-    void performLoginOperation(String username, String password, String expectedResult, String outcome) {
+
+    ////METHODS////
+    
+    void performLoginOperation(String username, String password, String expectedResult) {
         username_element.sendKeys(username);
         password_element.sendKeys(password);
         login_button.click();
+        String outcome = "";
+        Assert.assertEquals(outcome, expectedResult);
+    }
+
+    void performRefreshOperation() {
+        driver.navigate().refresh(); //refreshing the page
+        String outcome = "";
+        Assert.assertEquals(outcome, "");
+    }
+
+    void performCopyPasteOperation(String expectedResult) {
+        password_element.sendKeys("Mypassword1");
+        password_element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
+        password_element.sendKeys(Keys.chord(Keys.CONTROL, "c"));
+        password_element.sendKeys(Keys.chord(Keys.CONTROL, "v"));
+        String outcome = "";
         Assert.assertEquals(outcome, expectedResult);
     }
 
