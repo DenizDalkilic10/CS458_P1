@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <?php
+//require 'C:/xampp/htdocs/CS458_PR1_PHP/FlashMessages.php';
+
+  
+
+if (!session_id()) @session_start();
+
+//$msg = new \Plasticbrain\FlashMessages\FlashMessages();
 $msg = 'Bilkent University ID or Email';
 
 if (
@@ -7,16 +14,33 @@ if (
   && !empty($_POST['LoginForm_password'])
 ) {
 
-  if (
-    $_POST['LoginForm_username'] == '1234' &&
-    $_POST['LoginForm_password'] == '1234'
+  $password = $_POST['LoginForm_password'];
+  $username = $_POST['LoginForm_username']; 
+  if(!empty($password) && strlen($password) < 6){
+    $msg = 'Password is too short (minimum is 6 characters).';
+  }
+  /* elseif(!empty($password) && strlen($password > 64)){
+    $msg = 'Password is too long (maximum is 64 characters).';
+  } */
+  elseif(!preg_match("#^(-[0-9]{1,}|[0-9]{1,})$#", $username)){
+    $msg = 'Bilkent ID must be an integer.';
+  }
+  elseif (
+    $_POST['LoginForm_username'] == '123456' &&
+    $_POST['LoginForm_password'] == '123456'
   ) {
 
     $msg = 'You have entered valid use name and password';
   } else {
     $msg = 'Wrong username or password';
   }
+}elseif(isset($_POST['login']) && empty($_POST['LoginForm_username'])
+|| empty($_POST['LoginForm_password'])){
+  $msg = 'Bilkent ID or Password cannot be empty.';
 }
+
+
+
 ?>
 
 <html lang="en">
@@ -62,7 +86,7 @@ if (
             <div class="nav-collapse collapse" id="yw2">
               <ul class="pull-right nav" id="yw1" role="menu">
                 <li role="menuitem"><a tabindex="-1" href="/accounts/site/language?language=tr"><i class="icon-flag icon-white"></i> Türkçe</a></li>
-                <li visible="1" role="menuitem"><a tabindex="-1" href="/accounts/reset-password"><i class="icon-repeat icon-white"></i> Reset password</a></li>
+                <li visible="1" role="menuitem"><a tabindex="-1" href="/CS458_PR1_PHP/sent-to-email"><i class="icon-repeat icon-white"></i> Reset password</a></li>
                 <li visible="1" class="active" role="menuitem"><a tabindex="-1" href="/accounts/login"><i class="icon-user icon-white"></i> Login</a></li>
               </ul>
             </div>
@@ -124,6 +148,7 @@ if (
 
 
                       <div class="bilkent-form-actions form-actions"><button class="btn btn-bilkent" type="submit" name="login">Login</button></div>
+                      
                     </div>
                     <div class="row-fluid span6">
                       <div class="alert alert-error">
@@ -132,7 +157,7 @@ if (
                       </div>
                       <div class="well">
                         <P>Bilkent Computer Center uses this common login gateway page for user authenticaton. Most Bilkent University online services are accessed through this Secure Login Gateway.</P>
-                        <P><A HREF="/accounts/reset-password">If you have forgotten your STARS or BAIS password, please click here.</A></P>
+                        <!-- <P><A HREF="/CS458_PR1_PHP/sent-to-mail">If you have forgotten your STARS or BAIS password, please click here.</A></P> -->
                       </div>
                     </div>
                   </div>
