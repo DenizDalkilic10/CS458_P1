@@ -39,7 +39,7 @@
     },
     {
       "userID": "2103454",
-      "password": "Mypassword$%1",
+      "password": "Mypassword$%&",
       "output": "Successful Login. You’re in! (Symbols allowed in passwords)"
     },
     {
@@ -48,7 +48,7 @@
       "output": "Successful Login. You’re in! (No constraint on password length)"
     },
     {
-      "userID": "2.103454253799102234242342",
+      "userID": "2103454253799102234242342",
       "password": "Mypassword1",
       "output": "Successful Login. You’re in! (No constraint on userID length as long as it is correct)"
     }

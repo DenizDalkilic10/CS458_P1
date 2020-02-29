@@ -8,6 +8,7 @@ if (!session_id()) @session_start();
 
 //$msg = new \Plasticbrain\FlashMessages\FlashMessages();
 $msg = 'Bilkent University ID or Email';
+$msg1 = '';
 
 if (
   isset($_POST['login']) && !empty($_POST['LoginForm_username'])
@@ -17,27 +18,51 @@ if (
   $password = $_POST['LoginForm_password'];
   $username = $_POST['LoginForm_username'];
   if (!empty($password) && strlen($password) < 6) {
-    $msg = 'Password is too short (minimum is 6 characters).';
+    $msg = 'Failed login / Incorrect Password';
+  }
+  elseif(!empty($username) && strlen($username) < 6)
+  {
+    $msg = 'Failed Login / Incorrect userID';
   }
   /* elseif(!empty($password) && strlen($password > 64)){
     $msg = 'Password is too long (maximum is 64 characters).';
   } */ elseif (!preg_match("#^(-[0-9]{1,}|[0-9]{1,})$#", $username)) {
-    $msg = 'Bilkent ID must be an integer.';
+    $msg = 'Failed Login / Incorrect userID (only integers allowed)';
   } elseif (
-    $_POST['LoginForm_username'] == '123456' &&
-    $_POST['LoginForm_password'] == '123456'
+    $_POST['LoginForm_username'] == '2103454' &&
+    $_POST['LoginForm_password'] == 'Mypassword1'
   ) {
 
-    $msg = 'You have entered valid use name and password';
+    $msg = 'Successful Login. You’re in! (Correct auth)';
+  }
+  elseif(strlen($username) == 7 && strlen($password) < 15 && strpos($password, '$') !== false) //((strpos($password, '$') !== false) || (strpos($password, '%') !== false) || (strpos($password, '&') !== false )))
+  {
+    $msg = 'Successful Login. You’re in! (Symbols allowed in passwords)';
+  }
+  elseif (strlen($username) == 7 && strlen($password) > 15) {
+    $msg = 'Successful Login. You’re in! (No constraint on password length)';
+  }
+  elseif(strlen($username) > 7)
+  {
+    $msg = 'Successful Login. You’re in! (No constraint on userID length as long as it is correct)';
   } else {
     $msg = 'Wrong username or password';
   }
+  
 } elseif (
-  isset($_POST['login']) && empty($_POST['LoginForm_username'])
-  || empty($_POST['LoginForm_password'])
+  isset($_POST['login']) && empty($_POST['LoginForm_password'])
 ) {
-  $msg = 'Bilkent ID or Password cannot be empty.';
+  $msg = 'Failed Login / Incorrect Password (Password cannot be empty)';
 }
+elseif(isset($_POST['login']) && empty($_POST['LoginForm_username']))
+{
+  $msg = 'Failed Login / Incorrect userID (userID cannot be empty)';
+}
+
+if (isset($_POST['forgot-pass'])) {
+  $msg1 = 'A new password is sent to your Bilkent Mail.';
+}
+
 
 
 
@@ -148,6 +173,10 @@ if (
 
 
                       <div class="bilkent-form-actions form-actions"><button class="btn btn-bilkent" type="submit" name="login">Login</button></div>
+                      <div class="bilkent-form-actions form-actions"><button class="btn btn-bilkent" type="submit" name="forgot-pass">Forgot Password?</button>
+                      <p class="help-block"><span class="Message"><?php echo $msg1 ?></span></p>
+                      </div>
+                      
 
                     </div>
                     <div class="row-fluid span6">
@@ -157,7 +186,14 @@ if (
                       </div>
                       <div class="well">
                         <P>Bilkent Computer Center uses this common login gateway page for user authenticaton. Most Bilkent University online services are accessed through this Secure Login Gateway.</P>
-                        <!-- <P><A HREF="/CS458_PR1_PHP/sent-to-mail">If you have forgotten your STARS or BAIS password, please click here.</A></P> -->
+                        
+                        
+                        <!-- <P><A HREF="/CS458_PR1_PHP/sent-to-mail">If you have forgotten your STARS or BAIS password, please click here.</A></P>
+                        
+                        
+                        <a href="#" onclick="return confirm('New password sent to Bilkent Mail.')"> 
+                         If you have forgotten your STARS or BAIS password, please click here. 
+                        </a> --> 
                       </div>
                     </div>
                   </div>
@@ -269,14 +305,14 @@ jQuery('#login-form').yiiactiveform({'validateOnSubmit':true,'afterValidate':fun
                                                         },'attributes':[{'id':'LoginForm_username','inputID':'LoginForm_username','errorID':'LoginForm_username_em_','model':'LoginForm','name':'username','enableAjaxValidation':false,'inputContainer':'div.control\x2Dgroup','clientValidation':function(value, messages, attribute) {
 
 if(jQuery.trim(value)=='') {
-	messages.push("Bilkent ID cannot be blank.");
+  messages.push("Bilkent ID cannot be blank.");
 }
 
 
 if(jQuery.trim(value)!='') {
-	
+  
 if(!value.match(/^\s*[+-]?\d+\s*$/)) {
-	messages.push("Bilkent ID must be an integer.");
+  messages.push("Bilkent ID must be an integer.");
 }
 
 }
@@ -284,18 +320,18 @@ if(!value.match(/^\s*[+-]?\d+\s*$/)) {
 }},{'id':'LoginForm_password','inputID':'LoginForm_password','errorID':'LoginForm_password_em_','model':'LoginForm','name':'password','enableAjaxValidation':false,'inputContainer':'div.control\x2Dgroup','clientValidation':function(value, messages, attribute) {
 
 if(jQuery.trim(value)=='') {
-	messages.push("Password cannot be blank.");
+  messages.push("Password cannot be blank.");
 }
 
 
 if(jQuery.trim(value)!='') {
-	
+  
 if(value.length<6) {
-	messages.push("Password is too short (minimum is 6 characters).");
+  messages.push("Password is too short (minimum is 6 characters).");
 }
 
 if(value.length>64) {
-	messages.push("Password is too long (maximum is 64 characters).");
+  messages.push("Password is too long (maximum is 64 characters).");
 }
 
 }
