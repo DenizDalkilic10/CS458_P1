@@ -2,7 +2,7 @@
 <?php
 //require 'C:/xampp/htdocs/CS458_PR1_PHP/FlashMessages.php';
 
-  
+
 
 if (!session_id()) @session_start();
 
@@ -15,17 +15,15 @@ if (
 ) {
 
   $password = $_POST['LoginForm_password'];
-  $username = $_POST['LoginForm_username']; 
-  if(!empty($password) && strlen($password) < 6){
+  $username = $_POST['LoginForm_username'];
+  if (!empty($password) && strlen($password) < 6) {
     $msg = 'Password is too short (minimum is 6 characters).';
   }
   /* elseif(!empty($password) && strlen($password > 64)){
     $msg = 'Password is too long (maximum is 64 characters).';
-  } */
-  elseif(!preg_match("#^(-[0-9]{1,}|[0-9]{1,})$#", $username)){
+  } */ elseif (!preg_match("#^(-[0-9]{1,}|[0-9]{1,})$#", $username)) {
     $msg = 'Bilkent ID must be an integer.';
-  }
-  elseif (
+  } elseif (
     $_POST['LoginForm_username'] == '123456' &&
     $_POST['LoginForm_password'] == '123456'
   ) {
@@ -34,8 +32,10 @@ if (
   } else {
     $msg = 'Wrong username or password';
   }
-}elseif(isset($_POST['login']) && empty($_POST['LoginForm_username'])
-|| empty($_POST['LoginForm_password'])){
+} elseif (
+  isset($_POST['login']) && empty($_POST['LoginForm_username'])
+  || empty($_POST['LoginForm_password'])
+) {
   $msg = 'Bilkent ID or Password cannot be empty.';
 }
 
@@ -138,17 +138,17 @@ if (
                       <div class="control-group">
                         <label class="control-label required" for="LoginForm_password"><label for="LoginForm_password" class="required">Password <span class="required">*</span></label></label>
                         <div class="controls">
-                        <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span><input name="LoginForm_password" id="LoginForm_password" type="text" /></div>
+                          <div class="input-prepend"><span class="add-on"><i class="icon-user"></i></span><input name="LoginForm_password" id="LoginForm_password" type="text" /></div>
                           <p id="LoginForm_password_em_" style="display:none" class="help-block"></p>
-                          <p class="help-block"><span><?php echo $msg ?></span></p>
+                          <p class="help-block"><span class="Message"><?php echo $msg ?></span></p>
                         </div>
                       </div>
-                      
+
 
 
 
                       <div class="bilkent-form-actions form-actions"><button class="btn btn-bilkent" type="submit" name="login">Login</button></div>
-                      
+
                     </div>
                     <div class="row-fluid span6">
                       <div class="alert alert-error">

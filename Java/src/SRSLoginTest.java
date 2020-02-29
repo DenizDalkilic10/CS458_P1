@@ -90,13 +90,15 @@ public class SRSLoginTest {
         username_element.sendKeys(username);
         password_element.sendKeys(password);
         login_button.click();
-        String outcome = "";
+        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message']"));
+        String outcome = label.getText();
         Assert.assertEquals(outcome, expectedResult);
     }
 
     void performRefreshOperation() {
         driver.navigate().refresh(); //refreshing the page
-        String outcome = "";
+        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message']"));
+        String outcome = label.getText();
         Assert.assertEquals(outcome, "");
     }
 
@@ -105,7 +107,8 @@ public class SRSLoginTest {
         password_element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
         password_element.sendKeys(Keys.chord(Keys.CONTROL, "c"));
         password_element.sendKeys(Keys.chord(Keys.CONTROL, "v"));
-        String outcome = "";
+        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message']"));
+        String outcome = label.getText();
         Assert.assertEquals(outcome, expectedResult);
     }
 
