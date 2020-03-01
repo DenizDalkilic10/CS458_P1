@@ -2,8 +2,13 @@
   "Test1": [
     {
       "userID": "2103454",
-      "password": "1234",
+      "password": "myPassowrd",
       "output": "Failed login / Incorrect Password"
+    },
+    {
+      "userID": "2103454",
+      "password": "my",
+      "output": "Failed login / Password is too short (minimum is 6 characters)"
     },
     {
       "userID": "2103",

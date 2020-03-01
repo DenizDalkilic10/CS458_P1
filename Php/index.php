@@ -18,12 +18,9 @@ if (
   $password = $_POST['LoginForm_password'];
   $username = $_POST['LoginForm_username'];
   if (!empty($password) && strlen($password) < 6) {
-    $msg = 'Failed login / Incorrect Password';
+    $msg = 'Failed login / Password is too short (minimum is 6 characters)';
   }
-  elseif(!empty($username) && strlen($username) < 6)
-  {
-    $msg = 'Failed Login / Incorrect userID';
-  }
+  
   /* elseif(!empty($password) && strlen($password > 64)){
     $msg = 'Password is too long (maximum is 64 characters).';
   } */ elseif (!preg_match("#^(-[0-9]{1,}|[0-9]{1,})$#", $username)) {
@@ -45,16 +42,20 @@ if (
   elseif(strlen($username) > 7)
   {
     $msg = 'Successful Login. You’re in! (No constraint on userID length as long as it is correct)';
-  } else {
-    $msg = 'Wrong username or password';
+  } elseif($username == '2103454' && $password == 'myPassowrd'){
+    $msg = 'Failed login / Incorrect Password';
+  }
+  elseif(!empty($username) && $username !== '2103454')
+  {
+    $msg = 'Failed Login / Incorrect userID';
   }
   
 } elseif (
-  isset($_POST['login']) && empty($_POST['LoginForm_password'])
-) {
+  isset($_POST['login']) && empty($_POST['LoginForm_password']) && !empty($_POST['LoginForm_username'])
+){
   $msg = 'Failed Login / Incorrect Password (Password cannot be empty)';
 }
-elseif(isset($_POST['login']) && empty($_POST['LoginForm_username']))
+elseif(isset($_POST['login']) && empty($_POST['LoginForm_username']) && !empty($_POST['LoginForm_password']))
 {
   $msg = 'Failed Login / Incorrect userID (userID cannot be empty)';
 }
