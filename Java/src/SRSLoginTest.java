@@ -13,7 +13,7 @@ import java.nio.file.Paths;
 
 public class SRSLoginTest {
     ChromeDriver driver;
-    WebElement username_element, password_element, login_button, label;
+    WebElement username_element, password_element, login_button, forgot_password_button, label;
 
     @BeforeClass
     public void Initialize() {
@@ -47,8 +47,8 @@ public class SRSLoginTest {
     }
 
     @Test
-    public void forgotPasswordTest(String username, String password, String expectedResult) {
-        //TODO FORGOT PASSWORD LINKE TIKLAYINCA BIR LABEL CIKMASI LAZIM
+    public void forgotPasswordTest() throws InterruptedException {
+        performForgotPassword();
     }
 
     @DataProvider(name = "successfulLoginDataProvider")
@@ -69,13 +69,15 @@ public class SRSLoginTest {
 
     @Test(dataProvider = "pageRefreshDataProvider")
     public void pageRefreshTest(String username, String password, String expectedResult) {
-        performLoginOperation(username, password, expectedResult);
+
+        username_element.sendKeys(username);
+        password_element.sendKeys(password);
         performRefreshOperation();
     }
 
     @DataProvider(name = "passwordPasteDataProvider")
     public static Object[] passwordPasteTestDataProvider() {
-        return new Object[][]{{"Copy paste is not allowed for password"}};
+        return new Object[][]{{""}};
     }
 
     @Test(dataProvider = "passwordPasteDataProvider")
@@ -85,7 +87,7 @@ public class SRSLoginTest {
 
 
     ////METHODS////
-    
+
     void performLoginOperation(String username, String password, String expectedResult) {
         username_element.sendKeys(username);
         password_element.sendKeys(password);
@@ -95,11 +97,20 @@ public class SRSLoginTest {
         Assert.assertEquals(outcome, expectedResult);
     }
 
+    void performForgotPassword() throws InterruptedException {
+        forgot_password_button = driver.findElement(By.xpath("//button[@name='forgot-pass']"));
+        forgot_password_button.click();
+        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message2']"));
+        String outcome = label.getText();
+        Assert.assertEquals(outcome, "A new password is sent to your Bilkent Mail.");
+    }
+
     void performRefreshOperation() {
         driver.navigate().refresh(); //refreshing the page
-        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message']"));
-        String outcome = label.getText();
-        Assert.assertEquals(outcome, "");
+        username_element = driver.findElement(By.xpath("//input[@name='LoginForm_username']"));
+        password_element = driver.findElement(By.xpath("//input[@name='LoginForm_password']"));
+        Assert.assertEquals(password_element.getText(), "");
+        Assert.assertEquals(username_element.getText(), "");
     }
 
     void performCopyPasteOperation(String expectedResult) {
@@ -107,8 +118,7 @@ public class SRSLoginTest {
         password_element.sendKeys(Keys.chord(Keys.CONTROL, "a"));
         password_element.sendKeys(Keys.chord(Keys.CONTROL, "c"));
         password_element.sendKeys(Keys.chord(Keys.CONTROL, "v"));
-        label = driver.findElement(By.xpath("//p[@class='help-block']//span[@class='Message']"));
-        String outcome = label.getText();
+        String outcome = password_element.getText();
         Assert.assertEquals(outcome, expectedResult);
     }
 

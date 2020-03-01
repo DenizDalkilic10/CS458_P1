@@ -174,7 +174,7 @@ if (isset($_POST['forgot-pass'])) {
 
                       <div class="bilkent-form-actions form-actions"><button class="btn btn-bilkent" type="submit" name="login">Login</button></div>
                       <div class="bilkent-form-actions form-actions"><button class="btn btn-bilkent" type="submit" name="forgot-pass">Forgot Password?</button>
-                      <p class="help-block"><span class="Message"><?php echo $msg1 ?></span></p>
+                      <p class="help-block"><span class="Message2"><?php echo $msg1 ?></span></p>
                       </div>
                       
 
